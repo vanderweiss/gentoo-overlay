@@ -13,16 +13,16 @@ LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="~amd64 amd64"
 
-IUSE="test qt5 qt6 X"
+IUSE="test qmake qt5 qt6 X"
 RESTRICT="!test? ( test )"
-REQUIRED_USE="^^ ( qt5 qt6 ) X"
+REQUIRED_USE="^^ ( qt5 qt6 ) qmake X"
 
 RDEPEND="media-libs/fontconfig"
 
 DEPEND="${RDEPEND}
   app-text/poppler[cxx,qt5?]
   dev-libs/openssl
-  dev-libs/quazip[qt5?]
+  dev-libs/quazip[qt5?,qt6?]
   media-libs/mesa[gles1] 
   media-video/ffmpeg[font-config,libsdl,opengl,openssl]
   x11-libs/libxcb"
