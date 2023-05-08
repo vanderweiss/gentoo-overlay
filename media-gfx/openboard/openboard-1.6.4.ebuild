@@ -20,7 +20,7 @@ REQUIRED_USE="^^ ( qt5 qt6 ) X"
 RDEPEND="media-libs/fontconfig"
 
 DEPEND="${RDEPEND}
-  app-text/poppler[cxx,qt6?]
+  app-text/poppler[cxx,qt5?]
   dev-libs/openssl
   dev-libs/quazip[qt5?]
   media-libs/mesa[gles1] 
@@ -29,7 +29,7 @@ DEPEND="${RDEPEND}
 
 BDEPEND=""
 
-S="${WORKDIR}/${PV}"
+S="${WORKDIR}/OpenBoard-${PV}"
 
 src_configure() {
   econf $(use_enable X)
