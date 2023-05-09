@@ -11,7 +11,7 @@ DESCRIPTION="Interactive whiteboard for schools and universities"
 HOMEPAGE="https://openboard.ch/index.en.html"
 SRC_URI="https://github.com/OpenBoard-org/OpenBoard/archive/refs/tags/v${PV}.tar.gz"
 
-LICENSE="GPL-2+"
+LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 amd64"
 
@@ -25,10 +25,13 @@ DEPEND="${RDEPEND}
   app-text/poppler[cxx,qt5]
   dev-libs/openssl
   dev-libs/quazip[qt5]
+  dev-qt/designer
   dev-qt/qtmultimedia
   dev-qt/qtpositioning
   dev-qt/qtwebchannel
   dev-qt/qtwebengine[jumbo-build]
+  dev-qt/qtwidgets
+  dev-qt/qtxmlpatterns
   media-libs/libsdl
   media-libs/libsdl2
   media-libs/mesa[gles1] 
@@ -40,9 +43,8 @@ DEPEND="${RDEPEND}
     media-libs/libsdl2[gles1,gles2]     
   )"
 
-BDEPEND="dev-qt/qtcore
-  dev-qt/qtchooser
-"
+BDEPEND="dev-qt/linguist-tools 
+  dev-qt/qtcore"
 
 S="${WORKDIR}/OpenBoard-${PV}"
 
@@ -51,5 +53,5 @@ src_unpack() {
 }
 
 src_configure() {
-  econf $(use_enable X)
+  eqmake5 "${WORKDIR}/OpenBoard-${PV}/OpenBoard.pro"
 }
