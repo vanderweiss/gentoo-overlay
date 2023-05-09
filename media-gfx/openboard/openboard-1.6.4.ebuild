@@ -25,6 +25,9 @@ DEPEND="${RDEPEND}
   app-text/poppler[cxx,qt5]
   dev-libs/openssl
   dev-libs/quazip[qt5]
+  dev-qt/qtmultimedia
+  dev-qt/qtpositioning
+  dev-qt/qtwebchannel
   dev-qt/qtwebengine[jumbo-build]
   media-libs/libsdl
   media-libs/mesa[gles1] 
