@@ -17,7 +17,7 @@ KEYWORDS="~amd64 amd64"
 
 IUSE="fdk fontconfig libaom opus pulseaudio test theora qmake qt5 -qt6 vorbis vpx x264 wayland X"
 RESTRICT="!test? ( test )"
-REQUIRED_USE="fontconfig ^^ ( qt5 qt6 ) qmake wayland X"
+REQUIRED_USE="fontconfig ^^ ( qt5 qt6 ) qmake || ( wayland X )"
 
 RDEPEND="media-libs/fontconfig"
 
@@ -26,10 +26,12 @@ DEPEND="${RDEPEND}
   dev-libs/openssl
   dev-libs/quazip[qt5]
   dev-qt/designer
+  dev-qt/qtgui
   dev-qt/qtmultimedia
   dev-qt/qtpositioning
   dev-qt/qtwebchannel
-  dev-qt/qtwebengine[jumbo-build]
+  dev-qt/qtwebengine[designer,jumbo-build,widgets]
+  dev-qt/qtwebview
   dev-qt/qtwidgets
   dev-qt/qtxmlpatterns
   media-libs/libsdl
@@ -40,7 +42,8 @@ DEPEND="${RDEPEND}
   pulseaudio? ( media-sound/pulseaudio )
   wayland? ( 
     dev-qt/qtwayland
-    media-libs/libsdl2[gles1,gles2]     
+    media-libs/libsdl2[gles1,gles2]
+    media-libs/mesa[gles1,gles2]     
   )"
 
 BDEPEND="dev-qt/linguist-tools 
