@@ -15,9 +15,9 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 amd64"
 
-IUSE="fdk fontconfig libaom opus pulseaudio test theora qmake qt5 -qt6 vorbis vpx x264 wayland X"
+IUSE="alsa fdk fontconfig libaom opus pulseaudio test theora qmake qt5 -qt6 vorbis vpx x264 wayland X"
 RESTRICT="!test? ( test )"
-REQUIRED_USE="fontconfig ^^ ( qt5 qt6 ) qmake || ( wayland X )"
+REQUIRED_USE="alsa fontconfig ^^ ( qt5 qt6 ) qmake || ( wayland X )"
 
 RDEPEND="media-libs/fontconfig"
 
@@ -35,14 +35,14 @@ DEPEND="${RDEPEND}
   dev-qt/qtwidgets
   dev-qt/qtxmlpatterns
   media-libs/libsdl
-  media-libs/libsdl2
+  media-libs/libsdl2[gles1,pulseaudio?]
   media-libs/mesa[gles1] 
   media-video/ffmpeg[alsa,encode,fdk?,fontconfig,libaom?,mp3,opengl,openssl,opus?,oss,pulseaudio?,sdl,theora?,vorbis?,vpx?,x264?]
   x11-libs/libxcb
   pulseaudio? ( media-sound/pulseaudio )
   wayland? ( 
     dev-qt/qtwayland
-    media-libs/libsdl2[gles1,gles2]
+    media-libs/libsdl2[gles1,gles2,pulseaudio?]
     media-libs/mesa[gles1,gles2]     
   )"
 
